@@ -1,10 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Người dùng</title>
 </head>
 <body>
-$END$
+<table class="table">
+    <thead class="thead-light">
+    <td>
+        STT
+    </td>
+    <td>
+        ID
+    </td>
+    <td>
+        User Name
+    </td>
+    <td>
+        Full Name
+    </td>
+
+    <td>
+        Email
+    </td>
+    <td>
+        Password
+    </td>
+    <td>
+        Birth
+    </td>
+    <td>
+        Action
+    </td>
+    </thead>
+    <tr th:each="user : ${user}">
+        <td th:text="${userStat.index+1}"></td>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="|${user.lastName} ${user.firstName}|"></td>
+        <td th:text="${user.email}"></td>
+<!--        <td th:text="${student.password}"></td>-->
+        <td th:text="${user.birthday}"></td>
+<!--        <td>
+            <a th:href="'/students/view/'+${student.id}">View</a>
+
+            <a th:href="'/students/delete/'+${student.id}">Delete</a>
+        </td>-->
+    </tr>
+</table>
+<button onclick="location.href='/users/new'">Create</button>
 </body>
 </html>

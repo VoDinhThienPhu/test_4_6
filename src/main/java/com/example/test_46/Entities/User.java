@@ -1,4 +1,4 @@
-package Entities;
+package com.example.test_46.Entities;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -17,21 +17,20 @@ public class User {
     private String ID;
     @Column(nullable = false, unique = true)
     private String username;
-    @Column(nullable = false, unique = true)
-    private String email;
-    private String password;
     @Column(nullable = false)
     private String firstName;
     @Column(nullable = false)
     private String lastName;
-
+    @Column(nullable = false, unique = true)
+    private String email;
+    private String password;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 
 
     @ManyToOne
     @JoinColumn(name = "role_id")
-    private Role roles;
+    private Role role;
 
 
 }
